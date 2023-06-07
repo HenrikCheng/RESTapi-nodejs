@@ -11,9 +11,20 @@ POST http://localhost:3000/subscribers
 Content-Type: application/json
 
 {
-    "name": "Oliver Cheng", 
-    "subscribedToChannel": "See you later world"
+    "name": "Veikka", 
+    "subscribedToChannel": "Cat"
 }
+
+###
+
+PATCH http://localhost:3000/subscribers/648075bc9dce9e8ba8ee84ca
+Content-Type: application/json
+
+{
+    "name": "Minna", 
+    "subscribedToChannel": "Yes"
+}
+
 
 ###
 
