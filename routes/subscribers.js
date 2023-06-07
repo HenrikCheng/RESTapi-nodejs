@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const Subscriber = require("../models/subscriber");
 
 // Getting all
-router.get("/", (req, res) => {
-  res.send("get all");
+router.get("/", async (req, res) => {
+  // res.send("get all");
+  try {
+    const subscribers = await Subscriber.find();
+    res.json(subscribers);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // Getting one
