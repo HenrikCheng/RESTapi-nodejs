@@ -11,6 +11,10 @@ POST http://localhost:3000/subscribers
 Content-Type: application/json
 
 {
-    "name": "Amazing Person", 
-    "subscribedToChannel": "Web dev simplified"
+    "name": "Oliver Cheng", 
+    "subscribedToChannel": "See you later world"
 }
+
+###
+
+DELETE http://localhost:3000/subscribers/648073c73cd992213e79bec4

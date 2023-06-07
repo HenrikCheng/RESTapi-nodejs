@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 
 // Getting one
 router.get("/:id", getSubscriber, (req, res) => {
-  res.send(res.subscriber.name);
+  res.json(res.subscriber);
 });
 
 // Creating one
@@ -34,13 +34,18 @@ router.post("/", async (req, res) => {
 });
 
 // Updating one
-router.patch("/:id", getSubscriber, (req, res) => {
+router.patch("/:id", getSubscriber, async (req, res) => {
   res.send(req.params.id);
 });
 
 // Deleting one
-router.delete("/:id", getSubscriber, (req, res) => {
-  res.send("delete one");
+router.delete("/:id", getSubscriber, async (req, res) => {
+  try {
+    await res.subscriber.deleteOne();
+    res.json({ message: "Deleted Subscriber" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 async function getSubscriber(req, res, next) {
